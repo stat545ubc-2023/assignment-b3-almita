@@ -8,6 +8,15 @@ library(shinyWidgets)
 library(bslib)
 library(bsicons)
 
+#####
+# features:
+# 1. filtering by three movie attributes: release date, rating and genres
+# 2. sortable table
+# 3. cursed cat pictures
+# 4. thematic design
+# 5. number of results found
+#####
+
 # import data and transform release date into date object
 movies <- read.csv("data/horror_movies.csv") %>%
 	mutate(release_date = ymd(release_date))
@@ -22,7 +31,20 @@ genres <- movies %>%
 
 # ui
 ui <- page_sidebar(
-	title = h1("horror movies"),
+	title = div(style="display: flex; justify-content: center; padding-top: 10px",
+							tags$img(src = "cursed-cat.png",
+											 #class = "center-block",
+											 height = "80px",
+											 alt = "Picture of a cursed cat"
+							),
+							h1("horror movies", style = "padding-left: 10px; padding-right: 10px"),
+							tags$img(src = "cursed-cat.png",
+											 #class = "center-block",
+											 height = "80px",
+											 alt = "Picture of a cursed cat",
+											 style = "transform: scaleX(-1)"
+							)
+							),
 	sidebar = sidebar(
 		# date slider
 		card(
@@ -102,11 +124,10 @@ server <- function(input, output, session) {
 						 vote_average < input$rating[2],
 						 str_detect(genre_names,paste0(input$genres, collapse = "|"))
 			) %>%
-			select(original_title, overview, release_date, popularity, vote_average, runtime, genre_names) %>%
+			select(original_title, overview, release_date, popularity, vote_average, runtime) %>%
 			rename(title = original_title,
-						 `release date` = release_date,
-						 rating = vote_average,
-						 genre = genre_names)
+						 release = release_date,
+						 rating = vote_average)
 	})
 	
 	# datatable output
@@ -114,7 +135,8 @@ server <- function(input, output, session) {
 														 options = list(paging = FALSE,
 																						searching = FALSE),
 														 class = list(stripe = FALSE),
-														 rownames = FALSE)
+														 rownames = FALSE,
+														 selection = "none")
 	
 	# movies found count
 	output$resultsFound <- renderText({
