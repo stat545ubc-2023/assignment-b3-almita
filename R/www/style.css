@@ -7,12 +7,21 @@
 	--accent: #E4DCD3;
 }
 
-body{
+body {
 	background: var(--bg);
-	/* background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 31%, #880808 100%); */
 	color: var(--text);
 	font-family: 'Cormorant Infant', serif;
-	overflow: hidden;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 h1 {
