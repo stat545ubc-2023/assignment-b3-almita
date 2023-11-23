@@ -6,7 +6,6 @@ library(stringr)
 library(DT)
 library(shinyWidgets)
 library(bslib)
-library(bsicons)
 
 #####
 # features:
