@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,400;0,600;0,700;1,600&family=UnifrakturMaguntia&display=swap');
+
+:root{
+	--bg: #DB3604 ;
+	--bg2: #C53004;
+	--text: #00030D;
+	--accent: #E4DCD3;
+}
+
+body{
+	background: var(--bg);
+	/* background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 31%, #880808 100%); */
+	color: var(--text);
+	font-family: 'Cormorant Infant', serif;
+}
+
+h1 {
+	font-family: 'UnifrakturMaguntia', cursive;
+	font-size: 5.5em;
+  text-align: center;
+  color: var(--text);
+  margin-bottom: 0px;
+}
+
+h3, th {
+	text-align: center;
+	font-size: 1.3em;
+}
+
+p {
+	text-align: center;
+	font-size: 1.3em;
+}
+
+.bslib-sidebar-layout>.sidebar {
+    grid-column: 1 / 2;
+    width: 100%;
+    height: 100%;
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: rgba(0,0,0,0);
+    color: var(--text);
+}
+
+.card, .well {
+    --bs-card-spacer-y: 1rem;
+    --bs-card-spacer-x: 1rem;
+    --bs-card-title-spacer-y: .5rem;
+    --bs-card-border-width: 1.5px;
+    --bs-card-border-color: var(--bg2);
+    --bs-card-border-radius: .5rem;
+    --bs-card-box-shadow: ;
+    --bs-card-inner-border-radius: calc(.375rem - 1px);
+    --bs-card-cap-padding-y: .5rem;
+    --bs-card-cap-padding-x: 1rem;
+    --bs-card-cap-bg: none;
+    --bs-card-cap-color: ;
+    --bs-card-height: ;
+    --bs-card-color: ;
+    --bs-card-bg: none;
+    --bs-card-img-overlay-padding: 1rem;
+    --bs-card-group-margin: .75rem;
+    position: relative;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    min-width: 0;
+    height: var(--bs-card-height);
+    word-wrap: break-word;
+    background-color: var(--bs-card-bg);
+    background-clip: border-box;
+    /* border: var(--bs-card-border-width) solid var(--bs-card-border-color); */
+    border: none;
+    border-radius: var(--bs-card-border-radius);
+}
+
+.bslib-gap-spacing {
+    gap: 0;
+}
+
+label {
+		font-size: 1.15em;
+		text-align: center;
+    display: inline-block;
+}
+
+.irs {
+    font-family: 'Cormorant Infant', serif;
+}
+
+.irs--shiny .irs-bar {
+    top: 25px;
+    height: 8px;
+    border-top: 1px solid var(--text);
+    border-bottom: 1px solid var(--text);
+    background: var(--text);
+    cursor: s-resize;
+    z-index: 2;
+}
+
+.irs--shiny .irs-from, .irs--shiny .irs-to, .irs--shiny .irs-single {
+    padding: 1px 3px;
+    background-color: var(--text);
+    color: var(--accent);
+    border-radius: 0;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.irs--shiny .irs-min, .irs--shiny .irs-max {
+    top: 0;
+    padding: 1px 3px;
+    text-shadow: none;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    font-size: 12px;
+    line-height: 1;
+}
+
+.irs-grid-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 9.5px;
+    font-weight: 600;
+    line-height: 9px;
+    padding: 0 3px;
+}
+
+.irs-grid-pol {
+    background-color: var(--text) !important;
+}
+
+.irs--shiny .irs-line {
+    top: 25px;
+    height: 8px;
+    background: none;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    overflow: visible;
+}
+
+.irs--shiny .irs-handle {
+    top: 21px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    background-color: var(--text);
+    box-shadow: none;
+    border-radius: 22px;
+    z-index: 2;
+}
+
+.vscomp-toggle-button {
+    background-color: rgba(0,0,0,0);
+    color: var(--accent);
+    font-family: 'Cormorant Infant';
+    border: none;
+    padding: none;
+}
+
+.vscomp-search-container {
+    background-color: var(--text);
+    color: var(--accent);
+    font-family: 'Cormorant Infant';
+}
+
+.vscomp-option.focused {
+    background-color: var(--accent) !important;
+    color: var(--text);
+    font-family: 'Cormorant Infant';
+}
+
+.vscomp-option.selected {
+    background-color: var(--text);
+    color: var(--accent);
+    font-family: 'Cormorant Infant';
+}
+
+.vscomp-option {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    height: 40px;
+    padding: 0 15px;
+    position: relative;
+    background-color: var(--text);
+    color: var(--accent);
+    font-family: 'Cormorant Infant';
+}
+
+.vscomp-wrapper.multiple .vscomp-option.selected .checkbox-icon::after {
+    transform: rotate(45deg) translate(1px, -4px);
+    border-color: var(--bg);
+    border-left-color: rgba(0,0,0,0);
+    border-top-color: rgba(0,0,0,0);
+    width: 50%;
+}
+
+.vscomp-wrapper .checkbox-icon::after {
+    transition-duration: .2s;
+    border: 1.5px solid var(--bg);
+    content: "";
+    display: inline-bl;
+    height: 70%;
+    width: 70%;
+    : 100%;
+}
+
+.vscomp-wrapper.has-clear-button .vscomp-toggle-button {
+    padding-right: 0px;
+}
+
+.vscomp-wrapper .checkbox-icon {
+    display: inline-flex;
+    height: 15px;
+    margin-right: 10px;
+    margin-bottom: 0px;
+    position: relative;
+    width: 15px;
+    align-items: center;
+}
+
+.vscomp-wrapper.show-value-as-tags .vscomp-value-tag {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    align-items: center;
+    border: none;
+    background: rgba(0,0,0,0.1);
+    border-radius: 20px;
+    display: inline-flex;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 0 4px 4px 0;
+    max-width: 100%;
+    padding: 2px 3px 2px 8px;
+}
+
+.vscomp-toggle-button {
+	color: var(--text);
+}
+
+.vscomp-clear-icon::before, .vscomp-clear-icon::after {
+    background-color: var(--text);
+    content: "";
+    height: 12px;
+    left: 5px;
+    position: absolute;
+    top: 1px;
+    width: 2px;
+}
+
+thead, tbody, tfoot, tr, td, th {
+    border-color: var(--text);
+    border-style: solid;
+    border-width: 0;
+    color: var(--text);
+}
+
+td {
+	font-size: 15px;
+	color: var(--text);
+}
+
+.value-box-grid {
+		color: var(--text);
+}
+
+.value-box-area.html-fill-item.html-fill-container {
+    color: var(--text);
+}
+
+.bslib-value-box .value-box-area {
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    font-size: unset; 
+    font-weight: unset;
+}
+
+.bslib-value-box .value-box-area>:first-child {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.bg-primary{
+		background: #C53004 !important;
+		border: none;
+}
+
+div#resultsFound {
+    font-family: 'Cormorant Infant';
+    font-weight: 700;
+    text-align: center;
+    font-size: 3em;
+}
+
+.bslib-sidebar-layout>.collapse-toggle {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    right: calc(-1 * var(--bslib-sidebar-icon-size));
+    bottom: calc(var(--bslib-sidebar-padding) + var(--bslib-sidebar-overlap-counter, 0) * calc(var(--bslib-sidebar-icon-size) + var(--bslib-sidebar-padding)));
+    border: none;
+    border-radius: var(--bs-border-radius);
+    padding: 7px 0;
+    background: var(--bg2);
+    color: var(--text);
+}

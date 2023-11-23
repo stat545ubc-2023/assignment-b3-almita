@@ -24,11 +24,10 @@ genres <- movies %>%
 ui <- page_sidebar(
 	title = h1("horror movies"),
 	sidebar = sidebar(
-		title = h2("what do you want to watch?"),
-		
 		# date slider
 		card(
-			sliderInput("release_date", "release date", 
+			h3("release date"),
+			sliderInput("release_date", NULL, 
 									min = year(min(movies$release_date)),
 									max = year(max(movies$release_date)),
 									value = c(year(min(movies$release_date)), year(max(movies$release_date))),
@@ -38,7 +37,8 @@ ui <- page_sidebar(
 		
 		# rating slider
 		card(
-			sliderInput("rating", "rating",
+			h3("rating"),
+			sliderInput("rating", NULL,
 									min = min(movies$vote_average),
 									max = max(movies$vote_average),
 									value = c(5, max(movies$vote_average))
@@ -47,21 +47,25 @@ ui <- page_sidebar(
 		
 		# genre selector
 		card(
-			virtualSelectInput("genres", "genres",
+			h3("genres"),
+			virtualSelectInput("genres", NULL,
 												 choices = genres,
-												 selected = genres,
+												 selected = genres[5:9],
 												 multiple = TRUE,
 												 search = TRUE,
-												 showValueAsTags = TRUE
+												 showValueAsTags = TRUE,
+												 dropboxWrapper = "body"
 			),
 		),
 		
 		# movies found
-		value_box(
+		card(value_box(
 			title = "movies found",
 			value = textOutput("resultsFound"),
-			showcase = bs_icon("camera-reels-fill")
-		)
+			height = "120px"
+			)
+			)
+		
 		),
 	
 	# movie results table
@@ -73,19 +77,11 @@ ui <- page_sidebar(
 			))
 		),
 	
+	# div(DTOutput("results")),
+	
+	# CSS
 	tags$head(
-		tags$style(
-			HTML(
-				'
-				.vscomp-toggle-button {
-						background-color: white;
-				}
-				span.vscomp-value-tag {
-    				border: 1px solid black !important;
-				}
-				'
-			)
-		)
+		tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
 	),
 )
 
@@ -94,6 +90,11 @@ server <- function(input, output, session) {
 	
 	# create reactive dataset
 	filtered <- reactive({
+		
+		if (is.null(input$genres)) {
+			return(NULL)
+		}
+		
 		movies %>%
 			filter(year(release_date) >= input$release_date[1],
 						 year(release_date) <= input$release_date[2],
@@ -111,7 +112,9 @@ server <- function(input, output, session) {
 	# datatable output
 	output$results <- renderDT(filtered(), 
 														 options = list(paging = FALSE,
-																						searching = FALSE))
+																						searching = FALSE),
+														 class = list(stripe = FALSE),
+														 rownames = FALSE)
 	
 	# movies found count
 	output$resultsFound <- renderText({
