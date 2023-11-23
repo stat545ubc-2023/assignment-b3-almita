@@ -12,6 +12,7 @@ body{
 	/* background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 31%, #880808 100%); */
 	color: var(--text);
 	font-family: 'Cormorant Infant', serif;
+	overflow: hidden;
 }
 
 h1 {
@@ -24,12 +25,12 @@ h1 {
 
 h3, th {
 	text-align: center;
-	font-size: 1.3em;
+	font-size: 20px;
 }
 
 p {
 	text-align: center;
-	font-size: 1.3em;
+	font-size: 20px;
 }
 
 .bslib-sidebar-layout>.sidebar {
@@ -284,7 +285,7 @@ td {
 }
 
 .bslib-value-box .value-box-area>:first-child {
-    font-size: 1.2rem;
+    font-size: 17px;
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -298,7 +299,7 @@ div#resultsFound {
     font-family: 'Cormorant Infant';
     font-weight: 700;
     text-align: center;
-    font-size: 3em;
+    font-size: 2.5em;
 }
 
 .bslib-sidebar-layout>.collapse-toggle {

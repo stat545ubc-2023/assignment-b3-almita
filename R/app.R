@@ -27,18 +27,15 @@ genres <- movies %>%
 	str_squish() %>%
 	unique() 
 
-
 # ui
 ui <- page_sidebar(
 	title = div(style="display: flex; justify-content: center; padding-top: 10px",
 							tags$img(src = "cursed-cat.png",
-											 #class = "center-block",
 											 height = "80px",
 											 alt = "Picture of a cursed cat"
 							),
 							h1("horror movies", style = "padding-left: 10px; padding-right: 10px"),
 							tags$img(src = "cursed-cat.png",
-											 #class = "center-block",
 											 height = "80px",
 											 alt = "Picture of a cursed cat",
 											 style = "transform: scaleX(-1)"
@@ -97,8 +94,6 @@ ui <- page_sidebar(
 				DTOutput("results")
 			))
 		),
-	
-	# div(DTOutput("results")),
 	
 	# CSS
 	tags$head(
